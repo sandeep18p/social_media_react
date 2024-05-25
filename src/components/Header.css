@@ -1,0 +1,40 @@
+.one{
+ background-color: #F05A22;
+ color: white;
+ height: 9vh;
+ display: flex;
+ justify-content: center;
+    box-shadow: 0 10px 20px #f9d294;
+ 
+}
+.inside > div:hover{
+    cursor: pointer;
+}
+h1{
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: middle; 
+    padding-left: 20px;
+    position: relative;
+    top: 10px;
+}
+
+.he:hover{
+    color: #e7e300;
+    cursor: pointer;
+}
+
+
+.inside{
+    position: relative;
+    left: -50px;
+    background-color: white;
+    width: 400px;
+    margin: auto;
+    height: 80%;
+    border-radius: 30px;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

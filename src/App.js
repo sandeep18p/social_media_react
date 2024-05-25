@@ -1,24 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import { Header } from './components/Header';
+import { useDispatch,useSelector } from 'react-redux';
+// import { fetchPosts } from './components/redux/postActions';
+import { fetchData } from './redux toolkit/postsReducer';
+import { useEffect,useState } from 'react';
+import Inner from './components/Inner';
+import Another from './components/Another';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import { Route, Routes } from 'react-router';
 
 function App() {
+  const dispatch = useDispatch();
+  const [select,setSelect] = useState(false);
+  
+  
+
+  useEffect(() => {
+   
+    dispatch(fetchData());
+  }, []);
+
+  const {loading,data,error} = useSelector(state => state.posts);
+  console.log(1)
+  console.log(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <Router>
+      <Header select={select} setSelect={setSelect}/>
+      <Routes>
+        <Route path="/" element={<Inner data={data} setSelect={setSelect}/>} />
+        <Route path="/item/:id" element={<Another />} />
+      </Routes>
+    </Router>
+   </>
   );
 }
 
