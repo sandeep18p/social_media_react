@@ -31,6 +31,7 @@
    /* height: auto;  */
    border-radius: 20px;
    align-items: center;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .imgg{
@@ -71,6 +72,8 @@
 .one_1_1{
     padding: 32px;
     display: flex;
+  
+
 }
 .two_2_2{
     padding-left: 32px;
@@ -111,8 +114,10 @@
 }
 
 .imggg_1{
-    width: 25vw;
+    width: 23vw;
+    height: 23vw;
     border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 .details > div > h1{
     margin: 0px;
@@ -123,6 +128,12 @@
     font-size: 35px;
     margin-top: 10px;
     margin-bottom: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+    
+}
+.one_2 > h1:hover{
+    position: relative;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .details{
@@ -165,6 +176,7 @@
 }
 
 .input > input{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     width: 96%;
     height: 40px;
     border: none;
