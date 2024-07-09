@@ -22,8 +22,8 @@ function App() {
   }, []);
 
   const {loading,data,error} = useSelector(state => state.posts);
-  console.log(1)
-  console.log(data);
+  // console.log(1)
+  // console.log(data);
   return (
    <>
    <Router>

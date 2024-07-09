@@ -5,19 +5,39 @@ import k from './1.png';
 import p from './2.png';
 import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const Another = () => {
   const { loading, data, error } = useSelector(state => state.posts);
   const { id } = useParams();
   console.log("here ", id);
+  const [flow,setFlow] =useState(null);
 
   const toshow = data.filter(item => item.id == id);
-  console.log(toshow[0], " ", data);
+  console.log(toshow);
 
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    console.log('ji ha')
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  function change(){
+     let n=`Post Was Posted By ${toshow[0].id}`
+     setFlow(n)
+  }
+  function dchange(){
+    
+    setFlow(toshow[0].body)
+ }
   function handleClick(id) {
-    console.log("coming ", data);
+    // console.log("coming ", data);
+    const op=data.filter(item => item.id == id);
+    setFlow(op[0].body)
+    scrollToTop(); 
     navigate(`/item/${id}`);
   }
 
@@ -29,7 +49,7 @@ const Another = () => {
         <>
           
           <div className="container">
-          <h1>Post Number {toshow[0].id}</h1>
+          <h1 className="jack">Post Number {toshow[0].id}</h1>
             <div className='one_1_1'>
               <div  className="imggg_1">
               <img src={toshow[0].img} alt="" className='imggg_1' />
@@ -41,8 +61,9 @@ const Another = () => {
               </div>
               <div className="two_2_2">
                  
-                 <div className="two_btn"><button className="b_1">Details</button><button className="b_2">User Info</button></div>
-                 <div className="lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae quo tenetur necessitatibus fuga suscipit officia quasi corporis cupiditate, molestiae tempora illo dolores reiciendis qui laboriosam laudantium nostrum quod neque libero.</div>
+                 <div className="two_btn"><button className={(flow===null || flow== toshow[0].body) ? 'b_1' : 'b_2' } onClick={dchange}>Details</button>
+                 <button className={(flow===null || flow== toshow[0].body) ? 'b_2' : 'b_1' } onClick={change}>User Info</button></div>
+                { flow!=null? <div className="lorem">{flow}</div> : <div className="lorem">{toshow[0].body}</div>}
             
               </div>
             </div>

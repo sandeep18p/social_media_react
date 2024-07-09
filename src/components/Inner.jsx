@@ -5,14 +5,34 @@ import { CiSearch } from "react-icons/ci";
 const Inner = ({data,setSelect})=>{
   const navigate = useNavigate();
 
+  function capitalizeFirstWord(str) {
+    if (!str) return str;
+    const words = str.split(' ');
+    words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+    return words.join(' ');
+  }
+
  
+
 
   function handleClick(id){
     // setSelect(id);
+    console.log('working')
     setSelect(true);
     console.log("hellos");
     navigate(`/item/${id}`);
+    scrollToTop(); 
 }
+
+const scrollToTop = () => {
+  console.log('ji ha')
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+
     return(<>
     <div className="container">
         <div className='one_2'>
@@ -31,8 +51,8 @@ const Inner = ({data,setSelect})=>{
             <div className='details'>
             <div className='o'>
             <h1 className='data'>{element.title.length > 33
-                        ? `${element.title.slice(0, 33)}...`
-                        : element.title}</h1>
+  ? `${capitalizeFirstWord(element.title.slice(0, 33))}...`
+  : capitalizeFirstWord(element.title)}</h1>
              
              <p>{element.body.length > 150 ? `${element.body.slice(0,150)}` : element.body } <span className='btn' onClick={() => handleClick(element.id)}>Read More...</span></p>
             
