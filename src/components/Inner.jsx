@@ -39,7 +39,7 @@ const scrollToTop = () => {
             <h1 >Social Media For Travellers</h1>
             <div className='input'>
             <CiSearch className='fix'/>
-            <input type="text"/>
+            <input type="text" placeholder='Search'/>
             </div>
         </div>
         <div className='row'>

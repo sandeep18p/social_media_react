@@ -18,7 +18,7 @@ export const Header = ({select,setSelect}) => {
       <div className='one'>
         <h1 className="he" onClick={()=>{handlen()}}>TravelMedia.in</h1>
         <div className='inside'>
-          <div><FaHome color={select ===false ?"#F05A22":"#F9DDCF"}/></div>
+          <div><FaHome color={select ===false ?"#F05A22":"#F9DDCF"} onClick={()=>{handlen()}}/></div>
           <div><FaBell color="#F9DDCF" /></div>
           <div><FaBookmark className="icon_class"  color={select ===false ?"#F9DDCF":"#F05A22"}/></div>
           <div><FaUser color="#F9DDCF" /></div>
